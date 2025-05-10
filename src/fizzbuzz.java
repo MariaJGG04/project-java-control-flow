@@ -1,23 +1,44 @@
+import java.util.Scanner;
+
 public class fizzbuzz {
     public static void main(String[] args) {
-        for (int i = 1; i <= 100; i++) {
-        
-            if (i % 3 == 0 && i % 5 == 0) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingresa el número inicial: ");
+        int inicio = scanner.nextInt();
+
+        System.out.print("Ingresa el número final: ");
+        int fin = scanner.nextInt();
+
+        if (inicio > fin) {
+            System.out.println("El número inicial debe ser menor o igual al final.");
+            return;
+        }
+
+        for (int i = inicio; i <= fin; i++) {
+            boolean mult3 = (i % 3 == 0);
+            boolean mult5 = (i % 5 == 0);
+            boolean mult7 = (i % 7 == 0);
+
+            if (mult3 && mult5 && mult7) {
+                System.out.println("FizzBuzzBoom");
+            } else if (mult3 && mult5) {
                 System.out.println("FizzBuzz");
-            }
-            
-            else if (i % 3 == 0) {
+            } else if (mult3 && mult7) {
+                System.out.println("FizzBoom");
+            } else if (mult5 && mult7) {
+                System.out.println("BuzzBoom");
+            } else if (mult3) {
                 System.out.println("Fizz");
-            }
-            
-            else if (i % 5 == 0) {
+            } else if (mult5) {
                 System.out.println("Buzz");
-            }
-            
-            else {
+            } else if (mult7) {
+                System.out.println("Boom");
+            } else {
                 System.out.println(i);
             }
         }
+
+        scanner.close();
     }
 }
-
